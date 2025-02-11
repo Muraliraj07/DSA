@@ -7,6 +7,9 @@ public class E01_Largest_Ele {
 		int arr[] = {1, 8, 7, 56, 90};
 		System.out.println("Approach 1 --> "+largestApr1(arr));
 		System.out.println("Approach 2 --> "+largestApr2(arr));
+		
+		System.out.println("Approach 1 --> SmallestEle : "+smallest(arr));
+
 	}
 	/*
 	 * Approach 1 : Brute Force
@@ -35,4 +38,13 @@ public class E01_Largest_Ele {
 		return n;
 	}
 	
+	static int smallest(int arr[]) {
+		int n = arr[0];
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]<n) {
+				n=arr[i];
+			}
+		}
+		return n;
+	}
 }
