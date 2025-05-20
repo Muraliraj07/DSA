@@ -6,44 +6,45 @@ public class E03_CountBetweenSameChar {
 
 	public static void main(String[] args) {
 		
-		String s="ansrseevsada";
-		int currMax;
-		int max=0;
-		int[] index=new int[128];
+		String s="nasrseevsada";
 		
-		for(int i=0; i<index.length; i++) {
-			index[i]=-1;
-		}
+		System.out.println("Count Sol 1 --> " + countBetweenSol1(s));
+		System.out.println("Count Sol 2 --> " + countBetweenSol2(s));
+	}
+	
+	// Best approach to find all gap for all characters
+	public static int countBetweenSol1(String input) {
+		int max = 0;
+		HashMap<Character, Integer> firstIndex = new HashMap<>();
 		
-		for(int i=0; i<s.length(); i++) {
-			char c=s.charAt(i);
-			int n = (int) c;
-			
-			if(index[n] == -1) {
-				index[n]=i;
+		for(int i=0; i<input.length(); i++) {
+			char c = input.charAt(i);
+			if(!firstIndex.containsKey(c)) {
+				firstIndex.put(c, i);
 			}
 			else {
-				currMax= i-index[n]-1;
-				if(currMax>max) {
-					max=currMax;
+				int gap = i - firstIndex.get(c) - 1;
+				if(gap > max) {
+					max = gap;
 				}
 			}
 		}
-		System.out.println(max);
-		
-		
-		SortedSet<Integer> rollNo = new TreeSet<>(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-			return 0;
-			}
-			});
-
-			rollNo.add(10);
-			rollNo.add(0);
-			rollNo.add(20);
-			rollNo.add(30);
-			System.out.println(rollNo);
+		return max;
 	}
-
+	
+	public static int countBetweenSol2(String input) {
+		int max = 0;
+		
+		for(int i=0; i<input.length(); i++) {
+			char c = input.charAt(i);
+			int first = input.indexOf(c);
+			int last = input.lastIndexOf(c);
+			if(first != last) {
+				max = last - first - 1; 
+				return max;
+			}
+		}
+		return 0;
+	}
+	
 }
