@@ -6,4 +6,5 @@
  *
  */
 module Arrays {
+	requires java.base;
 }
