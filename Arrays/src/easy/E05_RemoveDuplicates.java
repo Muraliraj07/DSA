@@ -1,4 +1,4 @@
-package easy;
+package Arrays.src.easy;
 
 public class E05_RemoveDuplicates {
 

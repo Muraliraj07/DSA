@@ -1,4 +1,4 @@
-package easy;
+package Arrays.src.easy;
 
 public class E04_CheckArrayIsSorted {
 	public static void main(String args[]) {

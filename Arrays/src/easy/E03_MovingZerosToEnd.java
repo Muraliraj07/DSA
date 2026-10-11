@@ -1,4 +1,4 @@
-package easy;
+package Arrays.src.easy;
 
 import java.util.Arrays;
 

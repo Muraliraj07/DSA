@@ -1,4 +1,4 @@
-package easy;
+package Arrays.src.easy;
 
 public class E02_SecLarg_SecSmall_Ele {
 	public static void main(String args[]) {
